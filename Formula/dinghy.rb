@@ -1,11 +1,12 @@
 class Dinghy < Formula
-  homepage 'https://github.com/codekitchen/dinghy'
-  url  'https://github.com/codekitchen/dinghy/archive/v4.1.0.tar.gz'
-  sha256 'da495a2d6af2e1078bad56a182da1ad5e850bf61'
-  version '4.1.0'
+  desc "faster, friendlier Docker on OS X"
+  homepage "https://github.com/codekitchen/dinghy"
+  url  'https://github.com/codekitchen/dinghy.git', tag: "v4.1.0"
+  head 'https://github.com/codekitchen/dinghy.git', branch: :master
+  sha256 "3169b7a20b0658c20215eb22af216f1a89fbcace65e4fcf66ecba4fb765892c0"
 
-  depends_on 'unfs3'
-  depends_on 'dnsmasq'
+  depends_on "unfs3"
+  depends_on "dnsmasq"
 
   def install
     bin.install "bin/dinghy"
@@ -16,5 +17,9 @@ class Dinghy < Formula
   def caveats; <<-EOS.undent
     Run `dinghy create` to create the VM, then `dinghy up` to bring up the VM and services.
     EOS
+  end
+
+  test do
+    system "#{brew --prefix}/bin/dinghy", "--version"
   end
 end
