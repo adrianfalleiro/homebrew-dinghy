@@ -1,9 +1,8 @@
 class Dinghy < Formula
   desc "faster, friendlier Docker on OS X"
   homepage "https://github.com/codekitchen/dinghy"
-  url "https://github.com/codekitchen/dinghy.git", :revision => "f0873d4"
-  version "4.1.0"
-  head "https://github.com/codekitchen/dinghy.git", :branch => :master
+  url "https://github.com/codekitchen/dinghy.git", :tag => "v4.1.0", :revision => "f0873d48e432cc061d7feab4068c9c00066e883b"
+  head "https://github.com/codekitchen/dinghy.git",
 
   depends_on "unfs3"
   depends_on "dnsmasq"
@@ -20,6 +19,6 @@ class Dinghy < Formula
   end
 
   test do
-    system "dinghy", "version"
+    system "#{bin}/dinghy", "version"
   end
 end
